@@ -1,0 +1,7 @@
+name: MegaloSMPCore
+version: '${project.version}'
+main: com.alticator.megalosmp.megalosmpcore.core
+api-version: 1.19
+authors: [ Alticator ]
+description: The core plugin for the MegaloSMP server.
+website: https://github.com/MegaloSMP/MegaloSMP-Core
