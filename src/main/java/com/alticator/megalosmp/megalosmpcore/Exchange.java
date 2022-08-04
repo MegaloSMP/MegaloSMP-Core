@@ -127,7 +127,7 @@ public class Exchange implements CommandExecutor {
             player.sendMessage(ChatColor.GREEN + "Bought " + quantity + " " + item.toString() + "(s) with " + transactionGold + " Gold.");
             return true;
         } else {
-            player.sendMessage(ChatColor.RED + "You don't have enough gold. (You have: " + playerGoldBalance + ", Required: (" + transactionGold + ")");
+            player.sendMessage(ChatColor.RED + "You don't have enough gold. (You have: " + playerGoldBalance + ", Required: " + transactionGold + ")");
             return false;
         }
     }
@@ -141,7 +141,7 @@ public class Exchange implements CommandExecutor {
             player.sendMessage(ChatColor.GREEN + "Sold " + quantity + " " + item.toString() + "(s) for " + goldValue + " Gold.");
             return true;
         } else {
-            player.sendMessage(ChatColor.RED + "You don't have enough " + item.toString() + ". (You have: " + playerItemQuantity + ", Required: (" + quantity + ")");
+            player.sendMessage(ChatColor.RED + "You don't have enough " + item.toString() + ". (You have: " + playerItemQuantity + ", Required: " + quantity + ")");
             return false;
         }
     }

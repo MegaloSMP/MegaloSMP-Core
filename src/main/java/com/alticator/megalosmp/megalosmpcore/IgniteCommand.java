@@ -30,7 +30,12 @@ public class IgniteCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.GOLD + "Set player " + target.toString() + " on fire!");
                 target.sendMessage(ChatColor.GOLD + "You have been set on fire with the /ignite command!");
                 return true;
+            } else {
+                player.sendMessage(ChatColor.RED + "Not enough gold. (You have: " + Util.countPlayerMaterial(player, Material.GOLD_INGOT) + ", needed: 32)");
             }
+        } else {
+            sender.sendMessage("You can only use this command as a player.");
+            return true;
         }
         return false;
     }

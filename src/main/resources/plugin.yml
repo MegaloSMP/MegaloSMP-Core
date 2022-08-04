@@ -13,3 +13,6 @@ commands:
   ignite:
     description: Set another player (or yourself) on fire.
     usage: "/<command> PlayerName"
+  pack:
+    description: Buy a predefined pack.
+    usage: "/<command> PackName"
