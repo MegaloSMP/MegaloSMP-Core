@@ -15,9 +15,12 @@ public class Exchange implements CommandExecutor {
     int argMaterialPrice;
 
     // Prices in gold ingots
+    // Note that some prices hardcoded in the parseMaterial() method.
     private final int logPrice = 1;
     private final int enderPearlPrice = 2;
     private final int diamondPrice = 48;
+
+    private final int concretePrice = 3;
 
     /////////////////////////
 
@@ -65,6 +68,48 @@ public class Exchange implements CommandExecutor {
                 pay = Material.DIAMOND;
                 price = diamondPrice;
                 break;
+            case "iron":
+            case "ironingot":
+                pay = Material.IRON_INGOT;
+                price = 16;
+                break;
+            case "cobblestone":
+                pay = Material.COBBLESTONE;
+                price = 1;
+                break;
+            case "stone":
+                pay = Material.STONE;
+                price = 2;
+                break;
+            case "smoothstone":
+                pay = Material.SMOOTH_STONE;
+                price = 3;
+                break;
+            case "stonebricks":
+                pay = Material.STONE_BRICKS;
+                price = 2;
+                break;
+            case "whiteconcrete":
+                pay = Material.WHITE_CONCRETE;
+                price = concretePrice;
+                break;
+            case "lightblueconcrete":
+                pay = Material.LIGHT_BLUE_CONCRETE;
+                price = concretePrice;
+                break;
+            case "cyanconcrete":
+                pay = Material.CYAN_CONCRETE;
+                price = concretePrice;
+                break;
+            case "yellowconcrete":
+                pay = Material.YELLOW_CONCRETE;
+                price = concretePrice;
+                break;
+            case "asphalt":
+            case "cyanterracotta":
+                pay = Material.CYAN_TERRACOTTA;
+                price = concretePrice;
+                break;
             default:
                 pay = null;
         }
@@ -79,10 +124,10 @@ public class Exchange implements CommandExecutor {
         if (playerGoldBalance >= transactionGold) {
             Util.take(player, Material.GOLD_INGOT, transactionGold);
             Util.give(player, item, quantity);
-            player.sendMessage(ChatColor.BOLD + "" + ChatColor.GREEN + "Bought " + quantity + " " + item.toString() + "(s) with " + transactionGold + " Gold.");
+            player.sendMessage(ChatColor.GREEN + "Bought " + quantity + " " + item.toString() + "(s) with " + transactionGold + " Gold.");
             return true;
         } else {
-            player.sendMessage(ChatColor.BOLD + "" + ChatColor.RED + "You don't have enough gold. (You have: " + playerGoldBalance + ", Required: (" + transactionGold + ")");
+            player.sendMessage(ChatColor.RED + "You don't have enough gold. (You have: " + playerGoldBalance + ", Required: (" + transactionGold + ")");
             return false;
         }
     }
@@ -93,10 +138,10 @@ public class Exchange implements CommandExecutor {
             int goldValue = quantity * price;
             Util.take(player, item, quantity);
             Util.give(player, Material.GOLD_INGOT, goldValue);
-            player.sendMessage(ChatColor.BOLD + "" + ChatColor.GREEN + "Sold " + quantity + " " + item.toString() + "(s) for " + goldValue + " Gold.");
+            player.sendMessage(ChatColor.GREEN + "Sold " + quantity + " " + item.toString() + "(s) for " + goldValue + " Gold.");
             return true;
         } else {
-            player.sendMessage(ChatColor.BOLD + "" + ChatColor.RED + "You don't have enough " + item.toString() + ". (You have: " + playerItemQuantity + ", Required: (" + quantity + ")");
+            player.sendMessage(ChatColor.RED + "You don't have enough " + item.toString() + ". (You have: " + playerItemQuantity + ", Required: (" + quantity + ")");
             return false;
         }
     }
@@ -115,7 +160,7 @@ public class Exchange implements CommandExecutor {
                     try {
                         quantityInt = Integer.parseInt(quantity);
                     } catch (NumberFormatException e) {
-                        player.sendMessage(ChatColor.BOLD + "" + ChatColor.RED + "Invalid Quantity (NumberFormatException)");
+                        player.sendMessage(ChatColor.RED + "Invalid Quantity (NumberFormatException)");
                         return false;
                     }
                     parseMaterial(args[1]);
@@ -123,7 +168,7 @@ public class Exchange implements CommandExecutor {
                         buy(player, argMaterial, quantityInt, argMaterialPrice);
                         return true;
                     } else {
-                        player.sendMessage(ChatColor.BOLD + "" + ChatColor.RED + "Invalid Material");
+                        player.sendMessage(ChatColor.RED + "Invalid Material");
                         return false;
                     }
                 } else if (args[0].equalsIgnoreCase("sell")) {
@@ -135,7 +180,7 @@ public class Exchange implements CommandExecutor {
                     try {
                         quantityInt = Integer.parseInt(quantity);
                     } catch (NumberFormatException e) {
-                        player.sendMessage(ChatColor.BOLD + "" + ChatColor.RED + "Invalid Quantity (NumberFormatException)");
+                        player.sendMessage(ChatColor.RED + "Invalid Quantity (NumberFormatException)");
                         return false;
                     }
                     parseMaterial(args[1]);
@@ -143,12 +188,12 @@ public class Exchange implements CommandExecutor {
                         sell(player, argMaterial, quantityInt, argMaterialPrice);
                         return true;
                     } else {
-                        player.sendMessage(ChatColor.BOLD + "" + ChatColor.RED + "Invalid Material");
+                        player.sendMessage(ChatColor.RED + "Invalid Material");
                         return false;
                     }
                 }
             } else {
-                player.sendMessage(ChatColor.BOLD + "" + ChatColor.RED + "Not enough arguments.");
+                player.sendMessage(ChatColor.RED + "Not enough arguments.");
             }
         } else {
             sender.sendMessage("Only players can use this command.");

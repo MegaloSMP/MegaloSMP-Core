@@ -8,6 +8,7 @@ public final class Core extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginCommand("exchange").setExecutor(new Exchange());
+        getServer().getPluginCommand("ignite").setExecutor(new IgniteCommand());
     }
 
     @Override

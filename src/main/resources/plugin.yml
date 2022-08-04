@@ -10,3 +10,6 @@ commands:
     aliases: x
     description: Buy or sell items
     usage: "/<command> buy/sell itemName [quantity (optional, default=1)]"
+  ignite:
+    description: Set another player (or yourself) on fire.
+    usage: "/<command> PlayerName"
