@@ -14,9 +14,9 @@ public class PackTabCompleter implements TabCompleter {
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         List<String> suggestions = new ArrayList<String>();
         if (args.length == 1) {
-            String[] packs = {"beef", "glow", "cyan_dye", "white_dye", "green_dye", "red_dye", "UltimatePick", "ProPick"}; // Must match the list in the Pack class
+            String[] packs = {"beef", "glow", "cyan_dye", "white_dye", "green_dye", "red_dye", "UltimatePick", "ProPick", "DestroyerPick"}; // Must match the list in the Pack class
             for (String i : packs) {
-                if (i.replace("_", "").startsWith(args[0].toLowerCase().replace("_", ""))) {
+                if (i.toLowerCase().replace("_", "").startsWith(args[0].toLowerCase().replace("_", ""))) {
                     suggestions.add(i);
                 }
             }

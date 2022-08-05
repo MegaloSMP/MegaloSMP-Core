@@ -49,11 +49,16 @@ public class Pack implements CommandExecutor {
                 case "propick":
                     item = new ItemStack(Material.IRON_PICKAXE, 1);
                     item.addEnchantment(Enchantment.DIG_SPEED, 5);
-                    item.addEnchantment(Enchantment.LUCK, 2);
+                    item.addEnchantment(Enchantment.DURABILITY, 3);;
                     price = 64;
                     break;
                 case "ultimatepick":
-                    item = new ItemStack(Material.IRON_PICKAXE, 1);
+                    item = new ItemStack(Material.NETHERITE_PICKAXE, 1);
+                    item.addEnchantment(Enchantment.DIG_SPEED, 5);
+                    item.addEnchantment(Enchantment.DURABILITY, 3);
+                    price = 128;
+                case "destroyerpick":
+                    item = new ItemStack(Material.WOODEN_PICKAXE, 1);
                     item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
                     item.addUnsafeEnchantment(Enchantment.LUCK, 10);
                     price = 128;
