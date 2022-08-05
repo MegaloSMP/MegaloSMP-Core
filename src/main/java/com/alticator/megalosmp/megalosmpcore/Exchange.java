@@ -112,6 +112,8 @@ public class Exchange implements CommandExecutor {
                 break;
             default:
                 pay = null;
+
+            // When updating, also add the new items to ExchangeTabCompleter
         }
         argMaterial = pay;
         argMaterialPrice = price;
