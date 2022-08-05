@@ -6,7 +6,7 @@
 
     <groupId>com.alticator.megalosmp</groupId>
     <artifactId>megalosmpcore</artifactId>
-    <version>alpha-snapshot</version>
+    <version>0.1-snapshot</version>
     <packaging>jar</packaging>
 
     <name>MegaloSMPCore</name>

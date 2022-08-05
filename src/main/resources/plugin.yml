@@ -1,7 +1,18 @@
 name: MegaloSMPCore
 version: '${project.version}'
-main: com.alticator.megalosmp.megalosmpcore.core
+main: com.alticator.megalosmp.megalosmpcore.Core
 api-version: 1.19
-authors: [ Alticator ]
+authors: [ MegaloSMP ]
 description: The core plugin for the MegaloSMP server.
 website: https://github.com/MegaloSMP/MegaloSMP-Core
+commands:
+  exchange:
+    aliases: x
+    description: Buy or sell items
+    usage: "/<command> buy/sell itemName [quantity (optional, default=1)]"
+  ignite:
+    description: Set another player (or yourself) on fire.
+    usage: "/<command> PlayerName"
+  pack:
+    description: Buy a predefined pack.
+    usage: "/<command> PackName"
