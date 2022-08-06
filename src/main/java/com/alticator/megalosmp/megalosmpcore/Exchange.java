@@ -106,6 +106,10 @@ public class Exchange implements CommandExecutor {
                 pay = Material.CYAN_TERRACOTTA;
                 price = concretePrice;
                 break;
+            case "netheriteingot":
+                pay = Material.NETHERITE_INGOT;
+                price = 36;
+                break;
             default:
                 pay = null;
 
