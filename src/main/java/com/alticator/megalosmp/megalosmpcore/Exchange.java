@@ -18,7 +18,7 @@ public class Exchange implements CommandExecutor {
     // Note that some prices hardcoded in the parseMaterial() method.
     private final int logPrice = 1;
     private final int enderPearlPrice = 2;
-    private final int diamondPrice = 48;
+    private final int diamondPrice = 24;
 
     private final int concretePrice = 3;
 
@@ -28,10 +28,6 @@ public class Exchange implements CommandExecutor {
         Material pay;
         int price = 0;
         switch (arg.toLowerCase().replace("_", "")) {
-            case "gold":
-            case "goldingot":
-                pay = Material.GOLD_INGOT;
-                break;
             case "acacialog":
                 pay = Material.ACACIA_LOG;
                 price = logPrice;

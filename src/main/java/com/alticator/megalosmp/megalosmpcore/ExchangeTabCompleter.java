@@ -21,7 +21,7 @@ public class ExchangeTabCompleter implements TabCompleter {
                 }
             }
         } else if (args.length == 2) {
-            String[] options = {"gold", "gold_ingot", "acacia_log", "birch_log", "mangrove_log", "jungle_log", "dark_oak_log",
+            String[] options = {"acacia_log", "birch_log", "mangrove_log", "jungle_log", "dark_oak_log",
                     "oak_log", "spruce_log", "ender_pearl", "diamond", "iron", "iron_ingot", "asphalt", "cyan_terracotta",
                     "cobblestone", "stone", "smooth_stone", "stone_bricks", "white_concrete", "light_blue_concrete",
                     "cyan_concrete", "yellow_concrete"};
