@@ -11,4 +11,3 @@ The `/x` command allows you to buy or sell items with gold ingots used as the cu
 - `/x sell oaklog` or `/x sell oak_log 1` Sells one oak log. (Underscores optional, 1 is the default quantity)
 ## Licence
 This project is available under the **MIT Licence**.
-MegaloSMP-Core by Alticator is licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
