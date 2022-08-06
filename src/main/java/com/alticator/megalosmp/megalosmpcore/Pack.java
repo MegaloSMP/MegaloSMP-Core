@@ -73,6 +73,33 @@ public class Pack implements CommandExecutor {
                     item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
                     price = 1024;
                     break;
+                case "knockbackstick":
+                    item = new ItemStack(Material.STICK, 1);
+                    item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 50);
+                    price = 512;
+                    break;
+                case "ultimateaxe":
+                    item = new ItemStack(Material.NETHERITE_AXE, 1);
+                    item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
+                    item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+                    price = 128;
+                    break;
+                case "ultimateshovel":
+                    item = new ItemStack(Material.NETHERITE_SHOVEL, 1);
+                    item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
+                    item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+                    price = 128;
+                    break;
+                case "ultimatehoe":
+                    item = new ItemStack(Material.NETHERITE_HOE, 1);
+                    item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+                    price = 128;
+                    break;
+                case "maximumsword":
+                    item = new ItemStack(Material.NETHERITE_SWORD, 1);
+                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2000000000);
+                    price = 2048;
+                    break;
                 default:
                     player.sendMessage(ChatColor.RED + "Invalid kit name.");
                     return false;
