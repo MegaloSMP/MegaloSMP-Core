@@ -11,6 +11,7 @@ public final class Core extends JavaPlugin {
         getServer().getPluginCommand("ignite").setExecutor(new IgniteCommand());
         getServer().getPluginCommand("pack").setExecutor(new Pack());
         getServer().getPluginCommand("pack").setTabCompleter(new PackTabCompleter());
+        getServer().getPluginCommand("exchange").setTabCompleter(new ExchangeTabCompleter());
     }
 
     @Override
