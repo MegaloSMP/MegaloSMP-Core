@@ -57,11 +57,17 @@ public class Pack implements CommandExecutor {
                     item.addEnchantment(Enchantment.DIG_SPEED, 5);
                     item.addEnchantment(Enchantment.DURABILITY, 3);
                     price = 128;
+                    break;
                 case "destroyerpick":
                     item = new ItemStack(Material.WOODEN_PICKAXE, 1);
                     item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
                     item.addUnsafeEnchantment(Enchantment.LUCK, 10);
                     price = 128;
+                    break;
+                case "emperorsword":
+                    item = new ItemStack(Material.NETHERITE_PICKAXE, 1);
+                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+                    price = 1024;
                     break;
                 default:
                     player.sendMessage(ChatColor.RED + "Invalid kit name.");
