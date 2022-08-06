@@ -26,6 +26,10 @@ public class Pack implements CommandExecutor {
             int dyePrice = 8;
 
             switch (args[0].toLowerCase().replace("_", "")) {
+                case "beef":
+                    item = new ItemStack(Material.COOKED_BEEF, 64);
+                    price = 16;
+                    break;
                 case "glow":
                     item = new ItemStack(Material.GLOW_INK_SAC, 32);
                     price = 16;
