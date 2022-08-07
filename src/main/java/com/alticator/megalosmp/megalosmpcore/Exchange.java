@@ -150,6 +150,10 @@ public class Exchange implements CommandExecutor {
                 pay = Material.VILLAGER_SPAWN_EGG;
                 price = 1024;
                 break;
+            case "emeraldblock":
+                pay = Material.EMERALD_BLOCK;
+                price = 32;
+                break;
             default:
                 pay = null;
 

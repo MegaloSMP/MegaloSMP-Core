@@ -25,7 +25,8 @@ public class ExchangeTabCompleter implements TabCompleter {
                     "oak_log", "spruce_log", "ender_pearl", "diamond", "iron", "iron_ingot", "asphalt", "cyan_terracotta",
                     "cobblestone", "stone", "smooth_stone", "stone_bricks", "white_concrete", "light_blue_concrete",
                     "cyan_concrete", "yellow_concrete", "netherite_ingot", "coal", "sea_lantern", "ender_chest", "glass",
-                    "white_stained_glass", "black_stained_glass", "bed", "gray_concrete", "villager_spawn_egg"};
+                    "white_stained_glass", "black_stained_glass", "bed", "gray_concrete", "villager_spawn_egg",
+                    "emerald_block"};
             for (String i : options) {
                 if (i.startsWith(args[1].toLowerCase())) {
                     suggestions.add(i);
