@@ -63,13 +63,13 @@ public class Pack implements CommandExecutor {
                     price = 128;
                     break;
                 case "destroyerpick":
-                    item = new ItemStack(Material.WOODEN_PICKAXE, 1);
+                    item = new ItemStack(Material.NETHERITE_PICKAXE, 1);
                     item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
-                    item.addUnsafeEnchantment(Enchantment.LUCK, 10);
-                    price = 128;
+                    item.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+                    price = 1024;
                     break;
                 case "emperorsword":
-                    item = new ItemStack(Material.NETHERITE_PICKAXE, 1);
+                    item = new ItemStack(Material.NETHERITE_SWORD, 1);
                     item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
                     price = 1024;
                     break;
@@ -97,7 +97,8 @@ public class Pack implements CommandExecutor {
                     break;
                 case "maximumsword":
                     item = new ItemStack(Material.NETHERITE_SWORD, 1);
-                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2000000000);
+                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 255);
+                    item.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
                     price = 2048;
                     break;
                 default:
