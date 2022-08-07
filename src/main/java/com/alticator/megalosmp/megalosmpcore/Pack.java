@@ -23,7 +23,7 @@ public class Pack implements CommandExecutor {
             ItemStack item;
             int price;
 
-            int dyePrice = 8;
+            int dyePrice = 16;
 
             switch (args[0].toLowerCase().replace("_", "")) {
                 case "beef":
@@ -31,23 +31,27 @@ public class Pack implements CommandExecutor {
                     price = 16;
                     break;
                 case "glow":
-                    item = new ItemStack(Material.GLOW_INK_SAC, 32);
-                    price = 16;
+                    item = new ItemStack(Material.GLOW_INK_SAC, 64);
+                    price = dyePrice;
                     break;
                 case "whitedye":
-                    item = new ItemStack(Material.WHITE_DYE, 32);
-                    price = 16;
+                    item = new ItemStack(Material.WHITE_DYE, 64);
+                    price = dyePrice;
                     break;
                 case "greendye":
-                    item = new ItemStack(Material.GREEN_DYE, 32);
+                    item = new ItemStack(Material.GREEN_DYE, 64);
                     price = dyePrice;
                     break;
                 case "reddye":
-                    item = new ItemStack(Material.RED_DYE, 32);
+                    item = new ItemStack(Material.RED_DYE, 64);
                     price = dyePrice;
                     break;
                 case "cyandye":
-                    item = new ItemStack(Material.CYAN_DYE, 32);
+                    item = new ItemStack(Material.CYAN_DYE, 64);
+                    price = dyePrice;
+                    break;
+                case "magentadye":
+                    item = new ItemStack(Material.MAGENTA_DYE, 64);
                     price = dyePrice;
                     break;
                 case "propick":
@@ -63,13 +67,13 @@ public class Pack implements CommandExecutor {
                     price = 128;
                     break;
                 case "destroyerpick":
-                    item = new ItemStack(Material.WOODEN_PICKAXE, 1);
+                    item = new ItemStack(Material.NETHERITE_PICKAXE, 1);
                     item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
-                    item.addUnsafeEnchantment(Enchantment.LUCK, 10);
-                    price = 128;
+                    item.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+                    price = 1024;
                     break;
                 case "emperorsword":
-                    item = new ItemStack(Material.NETHERITE_PICKAXE, 1);
+                    item = new ItemStack(Material.NETHERITE_SWORD, 1);
                     item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
                     price = 1024;
                     break;
@@ -97,8 +101,13 @@ public class Pack implements CommandExecutor {
                     break;
                 case "maximumsword":
                     item = new ItemStack(Material.NETHERITE_SWORD, 1);
-                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2000000000);
+                    item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 255);
+                    item.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 10);
                     price = 2048;
+                    break;
+                case "scaffolding":
+                    item = new ItemStack(Material.SCAFFOLDING, 64);
+                    price = 16;
                     break;
                 default:
                     player.sendMessage(ChatColor.RED + "Invalid kit name.");

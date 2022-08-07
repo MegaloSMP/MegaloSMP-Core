@@ -101,6 +101,10 @@ public class Exchange implements CommandExecutor {
                 pay = Material.YELLOW_CONCRETE;
                 price = concretePrice;
                 break;
+            case "grayconcrete":
+                pay = Material.GRAY_CONCRETE;
+                price = concretePrice;
+                break;
             case "asphalt":
             case "cyanterracotta":
                 pay = Material.CYAN_TERRACOTTA;
@@ -109,6 +113,46 @@ public class Exchange implements CommandExecutor {
             case "netheriteingot":
                 pay = Material.NETHERITE_INGOT;
                 price = 36;
+                break;
+            case "coal":
+                pay = Material.COAL;
+                price = 3;
+                break;
+            case "sealantern":
+                pay = Material.SEA_LANTERN;
+                price = 3;
+                break;
+            case "enderchest":
+                pay = Material.ENDER_CHEST;
+                price = 128;
+                break;
+            case "glass":
+                pay = Material.GLASS;
+                price = 2;
+                break;
+            case "whitestainedglass":
+                pay = Material.WHITE_STAINED_GLASS;
+                price = 2;
+                break;
+            case "blackstainedglass":
+                pay = Material.BLACK_STAINED_GLASS;
+                price = 2;
+                break;
+            case "wool":
+                pay = Material.WHITE_WOOL;
+                price = 1;
+                break;
+            case "bed":
+                pay = Material.PURPLE_BED;
+                price = 8;
+                break;
+            case "villagerspawnegg":
+                pay = Material.VILLAGER_SPAWN_EGG;
+                price = 1024;
+                break;
+            case "emeraldblock":
+                pay = Material.EMERALD_BLOCK;
+                price = 32;
                 break;
             default:
                 pay = null;
