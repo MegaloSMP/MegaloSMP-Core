@@ -101,6 +101,10 @@ public class Exchange implements CommandExecutor {
                 pay = Material.YELLOW_CONCRETE;
                 price = concretePrice;
                 break;
+            case "redconcrete":
+                pay = Material.RED_CONCRETE;
+                price = concretePrice;
+                break;
             case "grayconcrete":
                 pay = Material.GRAY_CONCRETE;
                 price = concretePrice;
@@ -121,6 +125,10 @@ public class Exchange implements CommandExecutor {
             case "sealantern":
                 pay = Material.SEA_LANTERN;
                 price = 3;
+                break;
+            case "chest":
+                pay = Material.CHEST;
+                price = 1;
                 break;
             case "enderchest":
                 pay = Material.ENDER_CHEST;
@@ -153,6 +161,22 @@ public class Exchange implements CommandExecutor {
             case "emeraldblock":
                 pay = Material.EMERALD_BLOCK;
                 price = 32;
+                break;
+            case "stonebrickwall":
+                pay = Material.STONE_BRICK_WALL;
+                price = 2;
+                break;
+            case "endrod":
+                pay = Material.END_ROD;
+                price = 512;
+                break;
+            case "andesite":
+                pay = Material.ANDESITE;
+                price = 1;
+                break;
+            case "diorite":
+                pay = Material.DIORITE;
+                price = 1;
                 break;
             default:
                 pay = null;
@@ -194,7 +218,7 @@ public class Exchange implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (sender instanceof Player) {
+        if (command.getName().equalsIgnoreCase("exchange") && sender instanceof Player) {
             Player player = (Player) sender;
             if (args.length >= 2) {
                 if (args[0].equalsIgnoreCase("buy")) {
@@ -241,9 +265,31 @@ public class Exchange implements CommandExecutor {
             } else {
                 player.sendMessage(ChatColor.RED + "Not enough arguments.");
             }
+        } else if (command.getName().equalsIgnoreCase("exchangeprice")) {
+            if (args.length >= 1) {
+                parseMaterial(args[0]);
+                if (argMaterial != null) {
+                    int quantity = 1;
+                    if (args.length >= 2) {
+                        try {
+                            quantity = Integer.parseInt(args[1]);
+                        } catch (NumberFormatException e) {
+                            sender.sendMessage(ChatColor.RED + "Invalid Quantity (NumberFormatException)");
+                            return false;
+                        }
+                    }
+                    int price = argMaterialPrice * quantity;
+                    sender.sendMessage(ChatColor.GREEN + "Price for " + quantity + " " + argMaterial.toString() + ": " + ChatColor.YELLOW + price + " Gold.");
+                    return true;
+
+                } else {
+                    sender.sendMessage(ChatColor.RED + "Invalid Material.");
+                }
+            } else {
+                sender.sendMessage(ChatColor.RED + "Incorrect amount of arguments. One accepted.");
+            }
         } else {
-            sender.sendMessage("Only players can use this command.");
-            return true;
+            sender.sendMessage("Only players can use this command: " + command.getName());
         }
         return false;
     }

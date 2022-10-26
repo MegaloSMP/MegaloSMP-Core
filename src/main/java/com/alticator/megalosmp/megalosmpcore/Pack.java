@@ -46,6 +46,10 @@ public class Pack implements CommandExecutor {
                     item = new ItemStack(Material.RED_DYE, 64);
                     price = dyePrice;
                     break;
+                case "yellowdye":
+                    item = new ItemStack(Material.YELLOW_DYE, 64);
+                    price = dyePrice;
+                    break;
                 case "cyandye":
                     item = new ItemStack(Material.CYAN_DYE, 64);
                     price = dyePrice;
@@ -68,11 +72,11 @@ public class Pack implements CommandExecutor {
                     break;
                 case "destroyerpick":
                     item = new ItemStack(Material.NETHERITE_PICKAXE, 1);
-                    item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
-                    item.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+                    item.addUnsafeEnchantment(Enchantment.DIG_SPEED, 20);
+                    item.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
                     price = 1024;
                     break;
-                case "emperorsword":
+                case "ultimatesword":
                     item = new ItemStack(Material.NETHERITE_SWORD, 1);
                     item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
                     price = 1024;
@@ -109,18 +113,30 @@ public class Pack implements CommandExecutor {
                     item = new ItemStack(Material.SCAFFOLDING, 64);
                     price = 16;
                     break;
+                case "torch":
+                    item = new ItemStack(Material.TORCH, 64);
+                    price = 16;
+                    break;
                 default:
-                    player.sendMessage(ChatColor.RED + "Invalid kit name.");
+                    player.sendMessage(ChatColor.RED + "Invalid pack name.");
                     return false;
+
+                // When updating, also add the new items to PackTabCompleter
             }
 
-            if (Util.countPlayerMaterial(player, Material.GOLD_INGOT) >= price) {
-                Util.take(player, Material.GOLD_INGOT, price);
-                player.getInventory().addItem(item);
+            if (command.getName().equalsIgnoreCase("pack")) {
+                if (Util.countPlayerMaterial(player, Material.GOLD_INGOT) >= price) {
+                    Util.take(player, Material.GOLD_INGOT, price);
+                    player.getInventory().addItem(item);
+                    return true;
+                } else {
+                    player.sendMessage(ChatColor.RED + "Not enough gold. (You have: " + Util.countPlayerMaterial(player, Material.GOLD_INGOT) + ", needed: " + price + ")");
+                }
+            } else if (command.getName().equalsIgnoreCase("packprice")) {
+                player.sendMessage(ChatColor.GREEN + "Price for the [" + args[0] + "] pack: " + ChatColor.YELLOW + "" + price + " Gold");
                 return true;
-            } else {
-                player.sendMessage(ChatColor.RED + "Not enough gold. (You have: " + Util.countPlayerMaterial(player, Material.GOLD_INGOT) + ", needed: " + price + ")");
             }
+
         } else {
             sender.sendMessage("Cannot execute command. Make sure you have exactly one argument and you are running the command as a player (not from the console).");
         }

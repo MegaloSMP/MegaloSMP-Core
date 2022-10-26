@@ -55,7 +55,7 @@ public class Util {
                     if (i.getAmount() >= amount - taken) {
                         i.setAmount(i.getAmount() - (amount - taken));
                         taken = amount;
-                    } else if (i.getAmount() < amount - taken) { // Amount 127, taken 0
+                    } else if (i.getAmount() < amount - taken) {
                         taken += i.getAmount();
                         i.setAmount(0);
                     }
