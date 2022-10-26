@@ -23,3 +23,6 @@ commands:
   packprice:
     description: Check the price for a pack or item available from the /pack command.
     usage: "/<command> PackName"
+  setday:
+    description: Set the time to day for 32 Gold.
+    usage: "/<command>"

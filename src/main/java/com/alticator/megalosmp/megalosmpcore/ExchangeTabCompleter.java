@@ -17,7 +17,7 @@ public class ExchangeTabCompleter implements TabCompleter {
             "cyan_concrete", "yellow_concrete", "red_concrete", "netherite_ingot", "coal", "sea_lantern", "chest", "ender_chest", "glass",
             "white_stained_glass", "black_stained_glass", "bed", "gray_concrete", "villager_spawn_egg",
             "emerald_block", "wool", "bed", "villager_spawn_egg", "emerald_block", "stone_brick_wall", "end_rod",
-            "andesite", "diorite"};
+            "andesite", "diorite", "beacon"};
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         List<String> suggestions = new ArrayList<String>();
@@ -25,13 +25,13 @@ public class ExchangeTabCompleter implements TabCompleter {
             if (args.length == 1) {
                 String[] options = {"buy", "sell"};
                 for (String i : options) {
-                    if (i.contains(args[0].toLowerCase().replace("_", ""))) {
+                    if (i.replace("_", "").contains(args[0].toLowerCase().replace("_", ""))) {
                         suggestions.add(i);
                     }
                 }
             } else if (args.length == 2) {
                 for (String i : options) {
-                    if (i.contains(args[1].toLowerCase().replace("_", ""))) {
+                    if (i.replace("_", "").contains(args[1].toLowerCase().replace("_", ""))) {
                         suggestions.add(i);
                     }
                 }
@@ -39,7 +39,7 @@ public class ExchangeTabCompleter implements TabCompleter {
         } else if (command.getName().equalsIgnoreCase("exchangeprice")) {
             if (args.length == 1) {
                 for (String i : options) {
-                    if (i.contains(args[0].toLowerCase().replace("_", ""))) {
+                    if (i.replace("_", "").contains(args[0].toLowerCase().replace("_", ""))) {
                         suggestions.add(i);
                     }
                 }

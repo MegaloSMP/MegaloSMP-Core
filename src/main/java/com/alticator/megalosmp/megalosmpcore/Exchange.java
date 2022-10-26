@@ -178,6 +178,10 @@ public class Exchange implements CommandExecutor {
                 pay = Material.DIORITE;
                 price = 1;
                 break;
+            case "beacon":
+                pay = Material.BEACON;
+                price = 512;
+                break;
             default:
                 pay = null;
 
