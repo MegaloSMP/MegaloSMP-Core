@@ -8,11 +8,18 @@ website: https://github.com/MegaloSMP/MegaloSMP-Core
 commands:
   exchange:
     aliases: x
-    description: Buy or sell items
-    usage: "/<command> buy/sell itemName [quantity (optional, default=1)]"
+    description: Buy or sell items.
+    usage: "/<command> buy/sell ItemName [quantity (optional, default=1)]"
+  exchangeprice:
+    aliases: xprice
+    description: Show price for items available through the /exchange command.
+    usage: "/<command> ItemName [quantity (optional, default=1)]"
   ignite:
     description: Set another player (or yourself) on fire.
     usage: "/<command> PlayerName"
   pack:
-    description: Buy a predefined pack.
+    description: Buy a predefined pack or item.
+    usage: "/<command> PackName"
+  packprice:
+    description: Check the price for a pack or item available from the /pack command.
     usage: "/<command> PackName"
