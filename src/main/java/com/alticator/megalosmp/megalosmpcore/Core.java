@@ -7,19 +7,23 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Core extends JavaPlugin {
-
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        // Set command executors and tab completers
         getServer().getPluginCommand("exchange").setExecutor(new Exchange());
         getServer().getPluginCommand("exchangeprice").setExecutor(new Exchange());
         getServer().getPluginCommand("ignite").setExecutor(new IgniteCommand());
         getServer().getPluginCommand("pack").setExecutor(new Pack());
         getServer().getPluginCommand("packprice").setExecutor(new Pack());
+        getServer().getPluginCommand("setday").setExecutor(new SetDay());
         getServer().getPluginCommand("pack").setTabCompleter(new PackTabCompleter());
         getServer().getPluginCommand("packprice").setTabCompleter(new PackTabCompleter());
         getServer().getPluginCommand("exchange").setTabCompleter(new ExchangeTabCompleter());
         getServer().getPluginCommand("exchangeprice").setTabCompleter(new ExchangeTabCompleter());
+
+        // Register Events
+        getServer().getPluginManager().registerEvents(new EventListener(), this);
+
 
         // Logs to planks recipe
 

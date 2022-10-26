@@ -18,7 +18,7 @@ public class PackTabCompleter implements TabCompleter {
         List<String> suggestions = new ArrayList<String>();
         if (args.length == 1) {
             for (String i : packs) {
-                if (i.toLowerCase().replace("_", "").startsWith(args[0].toLowerCase().replace("_", ""))) {
+                if (i.toLowerCase().replace("_", "").contains(args[0].toLowerCase().replace("_", ""))) {
                     suggestions.add(i);
                 }
             }
